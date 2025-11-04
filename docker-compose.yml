@@ -1,10 +1,10 @@
 services:
   mediawiki:
-    image: mediawiki
+    image: ghcr.io/ajorians/mediawiki:latest
     container_name: mediawiki
 #First time running comment out the volumes section as you don't have a valid file you can mount yet
-#    volumes:
-#      - /opt/DockerSwarmData/mediawiki/LocalSettings.php:/srv/www/htdocs/LocalSettings.php
+    volumes:
+      - /opt/DockerSwarmData/mediawiki/LocalSettings.php:/srv/www/htdocs/LocalSettings.php
     ports:
       - 8080:80 # <Host Port>:<Container Port>
     restart: unless-stopped
