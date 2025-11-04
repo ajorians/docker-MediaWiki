@@ -39,7 +39,7 @@ RUN cd /tmp && \
 
 RUN cd /tmp && \
     wget $SITE_LOGO_URL && \
-    cp $SITE_FILENAME $MEDIAWIKI_DIR/resources
+    cp $SITE_FILENAME $MEDIAWIKI_DIR/resources/assets
 
 # Set directory permissions
 RUN chown -R wwwrun:www $MEDIAWIKI_DIR
