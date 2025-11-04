@@ -10,6 +10,8 @@ ENV MEDIAWIKI_SEMANTICRATING_URL https://extdist.wmflabs.org/dist/extensions/Sem
 
 ENV SITE_URL=wiki.orians.org
 ENV SITE_ALIAS_URL=wikibackup.orians.org
+ENV SITE_FILENAME=lexielogo.png
+ENV SITE_LOGO_URL=https://mediaassets.orians.org/lexielogo.png
 
 # Install Apache, PHP, and dependencies
 RUN zypper --non-interactive ref
@@ -34,6 +36,10 @@ RUN cd /tmp && \
 RUN cd /tmp && \
     wget $MEDIAWIKI_SEMANTICRATING_URL && \
     tar -xzf SemanticRating-REL1_39-2a49137.tar.gz -C $MEDIAWIKI_DIR/extensions 
+
+RUN cd /tmp && \
+    wget $SITE_LOGO_URL && \
+    cp $SITE_FILENAME $MEDIAWIKI_DIR/resources
 
 # Set directory permissions
 RUN chown -R wwwrun:www $MEDIAWIKI_DIR
