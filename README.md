@@ -12,6 +12,9 @@ docker-compose down
 Do a quick edit to docker-compose.yml and then go back up with:
 docker-compose up -d
 
-You do need a database (not included).
+You do need a database (not included).  You can setup one up (or restore from a backup); and then make sure you create a user that can access the database via:
+CREATE USER 'wikiuser'@'%' IDENTIFIED BY 'changeme';
+GRANT ALL PRIVILEGES ON mediawiki.* TO 'wikiuser'@'%';
+FLUSH PRIVILEGES;
 
 Hope that help!
